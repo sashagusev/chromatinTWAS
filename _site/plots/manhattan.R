@@ -37,10 +37,18 @@ multiplot <- function(..., plotlist=NULL, file, cols=1, layout=NULL) {
   }
 }
 
-pop = c("CMC","NTR","YFS","METSIM")
-pop.ttl = c("Brain (CMC)","Blood (NTR)","Blood (YFS)","Adipose (METSIM)")
+pop = c("CMC","CMC-splicing","NTR","YFS","METSIM")
+pop.ttl = c("Brain (CMC)","Brain (CMC) splice variants","Blood (NTR)","Blood (YFS)","Adipose (METSIM)")
 
+twas = read.table("TWAS.PGC.SCZ2.ALL.zscores",as.is=T)
 genes = read.table("UCSC.hg19.knowngenes.longest",as.is=T,sep='\t')
+splice_genes = read.table("TWAS.PGC.SCZ2.CMC.splice_genes",as.is=T)
+
+# Update splicing cluster names with gene names
+m = match(twas[,3],splice_genes[,1])
+m.keep = !is.na(m)
+twas[m.keep,3] = splice_genes[m[m.keep],2]
+# ---
 genes[,2] = as.numeric( gsub("chr","",genes[,2]) )
 
 # get chr bounds
@@ -55,30 +63,23 @@ offsets = c(0,cumsum(chr.ends - chr.starts))
 clr = brewer.pal(3,"Set1")
 clr = c("gray70","gray60",clr[1:2])
 
-clumped = read.table("clump.rsq30.transcriptomewide.out",as.is=T)
-
 plots = list()
 for ( pi in 1:length(pop) ) {
 	p = pop[pi]
-	imp = read.table(paste(p,".PGC.SCZ2.imp.NOHLA",sep=''),as.is=T)
-	imp = imp[imp[,4] != 0,]
-	m = match(imp[,2],genes[,5])
+	imp = twas[twas[,2] == p,]
+	m = match(imp[,3],genes[,5])
 	cat( p , sum(is.na(m)) , "unmatched\n")
 	imp = imp[!is.na(m),]
 	m = m[!is.na(m)]
 	cur.chr = genes[m,2]
 	cur.pos = (genes[m,3] + genes[m,4])/2
-	cur.z = imp[,3] / sqrt(imp[,4])
+	cur.z = imp[,4]
 	
 	z.thresh = qnorm(0.05/(2*length(cur.z)),lower.tail=F)
 	
 	ylm = max(abs(cur.z),na.rm=T)
 	ylm = c(-8,8)
 	
-	top = clumped[clumped[,3] == p,]
-	top.z = top[,5]
-	m = match(top[,4],genes[,5])
-
 	points.x = rep(NA,length(cur.pos))
 	points.y = rep(NA,length(cur.pos))
 	points.clr = rep(NA,length(cur.pos))
@@ -93,10 +94,10 @@ for ( pi in 1:length(pop) ) {
 		top.all = keep & cur.z^2 > z.thresh^2
 		points.clr[ top.all & cur.z > 0 ] = clr[3]
 		points.clr[ top.all & cur.z < 0 ] = clr[3]
-		points.txt[ top.all ] = imp[top.all,2]
+		points.txt[ top.all ] = imp[top.all,3]
 	}
 	
-	lbl.keep = !is.na(points.txt)
+	lbl.keep = !is.na(points.txt) & !duplicated(points.txt) 
 	df.main = data.frame(pos = points.x , yval = points.y , labels = points.txt , colors = points.clr )
 	df.top = data.frame(pos = points.x[lbl.keep] , yval = points.y[lbl.keep] , labels = points.txt[lbl.keep] , colors = points.clr[lbl.keep])
 	
@@ -114,6 +115,6 @@ for ( pi in 1:length(pop) ) {
 }
 
 
-png("manhattan_scz.png",height=600,width=850)
-multiplot( plots[["CMC"]] , plots[["NTR"]] , plots[["YFS"]] , plots[["METSIM"]] )
+png("manhattan_scz.png",height=800,width=850)
+multiplot( plots[["CMC"]] , plots[["CMC-splicing"]] , plots[["NTR"]] , plots[["YFS"]] , plots[["METSIM"]] )
 dev.off()
