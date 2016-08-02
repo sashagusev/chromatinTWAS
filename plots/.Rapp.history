@@ -1,0 +1,35 @@
+load("/Users/sasha/github/chromaTWAS/plots/TWAS.PGC.SCZ2.RESULTS.RDa")
+library('DT')
+datatable(tbl)
+tbl
+colnames(tbl)
+colnames(tbl) = c("Study","Gene","TWAS Z","TWAS INFO","TWAS P","chr","start","end","best GWAS SNP","best GWAS P","clumped","chromatin")
+datatable(tbl)
+options(digits=2)
+datatable(tbl)
+tbl
+head(tbl)
+datatable(tbl)
+datatable(tbl,rownames=F)
+datatable(tbl,rownames=F,class='compact')
+colnames(tbl) = c("Study","Gene","TWAS Z","TWAS INFO","TWAS P","chr","start","end","best GWAS SNP","best GWAS P","*","chromatin")
+datatable(tbl,rownames=F)
+tbl$Study
+tbl[,3]
+tbl[,3] = round(tbl[,3],1)
+datatable(tbl,rownames=F)
+tbl[,4] = round(tbl[,4],2)
+datatable(tbl,rownames=F)
+tbl[,5]
+sprintf("%2.1e",tbl[,5])
+tbl[,5] = sprintf("%2.1e",tbl[,5])
+datatable(tbl,rownames=F)
+head(tbl)
+tbl[,10]
+tbl[,10] = sprintf("%2.1e",tbl[,10])
+datatable(tbl,rownames=F)
+savehistory('tbl.R')
+savehistory()
+savehistory('~/tbl.R')
+?datatable
+library(htmlwidgets)

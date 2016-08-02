@@ -1,0 +1,10 @@
+# Site settings
+title: SCZ/chromatin TWAS
+tag_text: chromatinTWAS
+description: Transcriptome-wide Association Study of schizophrenia and chromatin phenotypes
+
+# Build settings
+markdown: kramdown
+exclude: ["README.md"]
+sass:
+  style: compressed
