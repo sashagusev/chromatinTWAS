@@ -10,15 +10,15 @@ For questions or comments, contact Alexander Gusev [[agusev@hsph.harvard.edu](ma
 
 ---
 
-## TWAS associations at a glance
+## SCZ TWAS genes at a glance
 
 Manhattan plot of SCZ TWAS associations from each expression reference panel. Each point represents an individual gene with physical position on the x-axis and (signed) Z-score for association on the y-axis.
 
 ![image](manhattan_scz.png)
 
-## Top gene results
+## SCZ & chromatin associations in detail
 
-All transcriptome-wide significant TWAS associations.
+All transcriptome-wide significant TWAS associations and any corresponding chromatin associations.
 
 <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" onload="this.style.height=this.contentDocument.body.scrollHeight +'px';" src="plots/TWAS_RESULTS.html"></iframe>
 
@@ -26,11 +26,13 @@ All transcriptome-wide significant TWAS associations.
 
 ---
 
-## Downloads
+## Data
 
-| All SCZ TWAS association results across four expression reference panels | [ [download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.PGC.SCZ2.ALL.zscores.bz2) ] |
-| All chromatin-TWAS associations | [ [download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.CHROMATIN.ALL.assoc.tar.bz2) ] |
-| TWAS expression weights | [ [link](https://data.broadinstitute.org/alkesgroup/TWAS/) ] |
+| All SCZ TWAS association results across four expression reference panels | [[download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.PGC.SCZ2.ALL.zscores.bz2)] |
+| All chromatin-TWAS associations | [[download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.CHROMATIN.ALL.assoc.tar.bz2)] |
+| TWAS expression weights | [[link](https://data.broadinstitute.org/alkesgroup/TWAS/)] |
+| Supplementary Text, Figures, and Tables | [[pdf](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/Gusev_etal_SCZ_chromatin_TWAS_SUPP.pdf)]
+| Associations Spreadsheet | [[xlsx](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/Gusev_etal_SCZ_chromatin_TWAS_SUPP_SPREADSHEET.xlsx)]
 
 ## Change Log
 
