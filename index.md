@@ -4,7 +4,7 @@ layout: default
 
 Supporting Materials for the manuscript **"Transcriptome-wide association study of schizophrenia and chromatin activity yields mechanistic disease insights"** *Alexander Gusev, Nick Mancuso, Hilary Finucane, Yakir Reshef, Lingyun Song, Alexias Safi, Edwin Oh, Schizophrenia Working Group of the Psychiatric Genomics Consortium, Steven McCarroll, Benjamin Neale, Roel Ophoff, Michael C O'Donovan, Nicholas Katsanis, Gregory E Crawford, Patrick F Sullivan, Bogdan Pasaniuc and Alkes L Price* (2016) [in submission] [[preprint](http://biorxiv.org/content/early/2016/08/02/067355)]
 
-This page provides the documentation and data for analysis of gene expression, chromatin variation, and schizophrenia GWAS. For a general tutorial on TWAS, please see the main documentation at [http://sashagusev.github.io/TWAS](http://sashagusev.github.io/TWAS).
+This page provides the documentation and data for analysis of gene expression, chromatin variation, and schizophrenia GWAS. For a general tutorial on TWAS, please see the main documentation at [http://gusevlab.org/projects/fusion](http://gusevlab.org/projects/fusion).
 
 For questions or comments, contact Alexander Gusev [[agusev@hsph.harvard.edu](mailto:agusev@hsph.harvard.edu)].
 
@@ -30,7 +30,7 @@ All transcriptome-wide significant TWAS associations and any corresponding chrom
 
 | All SCZ TWAS association results across four expression reference panels | [[download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.PGC.SCZ2.ALL.zscores.bz2)] |
 | All chromatin-TWAS associations | [[download](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/TWAS.CHROMATIN.ALL.assoc.tar.bz2)] |
-| TWAS expression weights | [[link](https://data.broadinstitute.org/alkesgroup/TWAS/)] |
+| TWAS expression weights | [[link](http://gusevlab.org/projects/fusion)] |
 | Supplementary Text, Figures, and Tables | [[pdf](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/Gusev_etal_SCZ_chromatin_TWAS_SUPP.pdf)]
 | Associations Spreadsheet | [[xlsx](https://data.broadinstitute.org/alkesgroup/TWAS/CHROMATIN_TWAS/Gusev_etal_SCZ_chromatin_TWAS_SUPP_SPREADSHEET.xlsx)]
 
